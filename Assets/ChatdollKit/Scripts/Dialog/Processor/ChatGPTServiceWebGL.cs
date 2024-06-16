@@ -10,6 +10,7 @@ namespace ChatdollKit.Dialog.Processor
 {
     public class ChatGPTServiceWebGL : ChatGPTService
     {
+#if UNITY_WEBGL
         [DllImport("__Internal")]
         protected static extern void ChatCompletionJS(string targetObjectName, string sessionId, string url, string apiKey, string chatCompletionRequest);
         [DllImport("__Internal")]
@@ -186,5 +187,6 @@ namespace ChatdollKit.Dialog.Processor
                 isChatCompletionJSDone = true;
             }
         }
+#endif
     }
 }
